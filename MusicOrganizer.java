@@ -191,4 +191,18 @@ public class MusicOrganizer
         // play the random track:
         playTrack(randTrackNum);
     }
+    
+    /**
+     * The shuffleCollection method plays each track from the collection
+     * once, in random order.
+     * This satisfies exercise 4.45 for RVCC GDEV242 Week4 Lab
+     */
+    
+    public void shuffleCollection()
+    {
+        // placeholder!
+        // note to self: look into the ints (IntStream) method of the
+        // Random class - IntStream has a forEach and a toArray that might
+        // be useful
+    }
 }
