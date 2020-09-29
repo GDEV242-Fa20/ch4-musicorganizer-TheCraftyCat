@@ -1,11 +1,14 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * A class to hold details of audio tracks.
  * Individual tracks may be played.
  * 
- * @author David J. Barnes and Michael Kölling
- * @version 2016.02.29
+ * @author Catherine Oldfield
+ * @for RVCC GDEV242 - Fall 2020
+ * @from code written be David J. Barnes and Michael Kölling
+ * @version 2020-09-29
  */
 public class MusicOrganizer
 {
@@ -169,5 +172,23 @@ public class MusicOrganizer
         for(Track track : tempTracks) {
             addTrack(track);
         }
+    }
+    
+    /**
+     * The shuffle method plays a random track from the collection.
+     * This satisfies exercise 4.43 for RVCC GDEV242 Week4 Lab
+     */
+    
+    public void shuffle()
+    {
+        // generate a random track number:
+        Random randNum = new Random();
+        int randTrackNum = randNum.nextInt(tracks.size());
+        
+        // to check random number generation:
+        // System.out.println(randTrackNum);
+        
+        // play the random track:
+        playTrack(randTrackNum);
     }
 }
