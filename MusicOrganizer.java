@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Iterator;
 
 /**
  * A class to hold details of audio tracks.
@@ -200,9 +201,32 @@ public class MusicOrganizer
     
     public void shuffleCollection()
     {
-        // placeholder!
-        // note to self: look into the ints (IntStream) method of the
-        // Random class - IntStream has a forEach and a toArray that might
-        // be useful
+        // generate a random track number:
+        Random randNum = new Random();
+        
+        // copy the ArrayList:
+        ArrayList<Track> remainingTracks = new ArrayList<Track> (tracks);
+        
+        // play through the copy of the collection in random order
+        // remove a track once it's played
+        while (remainingTracks.size() > 0)
+        {
+            int chosenTrack = randNum.nextInt(remainingTracks.size());
+            playTrack(chosenTrack);
+            remainingTracks.remove(chosenTrack);
+        }
+        
+        /**
+         * Another option I considered was the ints() method of the Random
+         * class to generate an IntStream of random numbers, bounded by the
+         * size of the collection. From there using the toArray() method
+         * available to IntStream, iterate through the array of random
+         * numbers, matching them to collection indices to play each
+         * corresponding track. However, while technically interesting,
+         * it seemed to add unnecessary overhead compared to the simpler
+         * method I wrote above.
+         * 
+         * If you'd like to offer any feedback, I'd be interested to hear!
+         */
     }
 }
